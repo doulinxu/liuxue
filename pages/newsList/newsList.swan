@@ -1,0 +1,50 @@
+  <view class="loading" s-if="{{loading}}">
+    <view animation="{{loadingAnimate}}"></view>
+  </view>
+<view class="container {{_height ? 'noScroll': ''}}">
+  <view class="header">
+     <view class="hlogo" bind:tap="returnIndex" data-pointUrl="/pages/index/index"></view>
+     <view class="hmenu" bind:tap="scrollMenu">
+       <view></view>
+       <view></view>
+       <view></view>
+     </view>
+  </view>
+  <view class="menu" animation="{{animationData}}">
+    <view class="mask"></view>
+    <view class="menu_content">
+      <view class="hlogo"></view>
+      <view class="close" bind:tap="scrollMenu"></view>
+      <view class="menuList">
+        <view s-for="item in menu" class="{{item.cur ? 'cur' : ''}}" >
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="newsItem" bind:tap="changeUrl" data-pointUrl="/pages/newsDetail/newsDetail" s-for="item in newslist">
+        <image src="{{item.imgUrl}}"></image>
+        <view class="newsItem_text">
+          <view class="title">{{item.title}}</view>
+          <view class="info">
+            <view class="author">
+              作者：{{item.author}}
+            </view>
+            <view class="time">
+              {{item.time}}
+            </view>
+          </view>
+        </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view>
+      京ICP备17006811号
+    </view>
+    <view>
+      Copyight©www.jupeixun.cn all Rights Reserved
+    </view>
+  </view>
+
+</view>

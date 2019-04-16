@@ -1,0 +1,212 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+page{
+  height: 100%;
+  color: #333;
+}
+.container{
+min-height: 100%;
+padding-bottom:44px;
+}
+.header{
+  width:100%;
+}
+.header .hlogo{
+  float: left;
+  width:162px;
+  height:47px;
+  margin-top:12px;
+  margin-left:18px;
+  background: url(https://m.jupeixun.cn/skin/static/mip/images/v2.0/logo2.png) no-repeat;
+}
+.header .hmenu{
+  width:90px;
+  height:30px;
+  margin-top:24px;
+  margin-right:24px;
+  float: right;
+}
+.header .hmenu view{
+  float: left;
+  margin-left:10px;
+}
+.header .hmenu .asearch{
+    width:30px;
+    height:30px;
+    background: url(https://m.jupeixun.cn/skin/static/mip/images/v2.0/ico_search.png) no-repeat;
+}
+.header .hmenu .aselect{
+    width:30px;
+    height:30px;
+    background: url(https://m.jupeixun.cn/skin/static/mip/images/v2.0/ico_select.png) no-repeat;
+}
+.banner{
+  width:100%;
+  margin-top:10px;
+}
+.menu{
+  width:100%;
+
+}
+.menu .menu-item{
+  width:25%;
+  display: inline-block;
+  text-align: center;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.menu .menu-item image{
+  display: block;
+    width:62px;
+    height:62px;
+    margin:0 auto;
+    margin-bottom:5px;
+}
+.conner-box{
+  width:90%;
+  margin:0 auto;
+  padding-top:20px;
+  margin-top:20px;
+  border-top:1px solid #edf0f2;
+}
+.conner-box .conner-box-title{
+  widht:100%;
+  margin-bottom:10px;
+}
+.conner-box .conner-box-title .conner-box-title-text{
+  font-size: 20px;
+  color:#000;
+  font-weight: bold;
+}
+.conner-box .conner-box-title .conner-box-title-more{
+  font-size: 14px;
+  color:#8a9199;
+  float: right;
+}
+.conner-box-items .conner-box-item{
+  margin-bottom:5px;
+  width:100%;
+  position: relative;
+}
+.conner-box-items .conner-box-item image{
+  width:100%;
+}
+.conner-box-items .conner-box-item text{
+  width:100%;
+  text-align: center;
+  display: block;
+  height:100%;
+  position: absolute;
+  top:50%;
+  margin-top:-10px;
+  color:#fff;
+}
+.hot-school{
+  width:90%;
+  margin:0 auto;
+  padding-top:20px;
+  margin-top:20px;
+}
+.hot-school .hot-school-title{
+  widht:100%;
+  margin-bottom:10px;
+}
+.hot-school .hot-school-title .hot-school-title-text{
+  font-size: 20px;
+  color:#000;
+  font-weight: bold;
+}
+.hot-school .hot-school-title .hot-school-title-more{
+  font-size: 14px;
+  color:#8a9199;
+  float: right;
+}
+.change-type{
+  width:100%;
+  margin-bottom:15px;
+  height: 30px;
+}
+.change-type .change-type-btn{
+  width:18%;
+  font-size: 14px;
+  background-color: #f5f6f7;
+  border-radius: 4px;
+  padding:6px;
+  text-align: center;
+  float: left;
+  margin-right:5px;
+}
+.change-type-btn.cur{
+   color: #fff;
+    background-color: #078cf1;
+}
+.tab{
+  width: 100%;
+  padding-bottom:10px;
+  margin-bottom:10px;
+  border-bottom: 1px solid #edf0f2;
+}
+.tab image{
+  width:33%;
+  display: inline-block;
+}
+.tab-text{
+  float: right;
+  width:65%;
+  margin-left:5px;
+}
+.tab-rank .rank{
+  color: #078cf1;
+}
+.tab-text view{
+  max-height:50px;
+  line-height:25px;
+}
+
+
+.footer{
+  position: fixed;
+  bottom:0;
+  width:100%;
+  height:45px;
+}
+.footer .tryapply{
+  width:50%;
+  background: #64569d;
+  color:#fff;
+  text-align: center;
+  line-height:45px;
+  display: inline-block;
+}
+.footer .tryapply view{
+  width:17px;
+  height:17px;
+  display: inline-block;
+  background: url(https://m.jupeixun.cn/skin/static/mip/images/icon.png) no-repeat;
+  background-position: -285px -241px;
+  background-size:300px; 
+  position:relative;
+  top:5px;
+  margin-right:4px;
+}
+.footer .online{
+  display: inline-block;
+  width:50%;
+  background: #0f7fbc;
+  color:#fff;
+  text-align: center;
+  line-height:45px;
+}
+.footer .online view{
+  width:17px;
+  height:17px;
+  display: inline-block;
+  background: url(https://m.jupeixun.cn/skin/static/mip/images/icon.png) no-repeat;
+  background-position: -283px -25px;
+  background-size:300px; 
+  position:relative;
+  top:5px;
+  margin-right:4px;
+}

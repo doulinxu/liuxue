@@ -1,0 +1,43 @@
+  <view class="loading" s-if="{{loading}}">
+    <view animation="{{loadingAnimate}}"></view>
+  </view>
+<view class="container">
+    <view class="content">
+      <view class="title">
+        {{content.title}}
+      </view>
+      <view class="author">
+        {{content.author}}
+      </view>
+      <view class="time">
+        {{content.time}}
+        为您提供最新留学服务
+      </view>
+      <view class="text" s-for="item in content.text">
+          {{item}}
+      </view>
+    </view>
+          <view class="otherArticle">
+        <view class="title">
+          <view></view>
+          相关文章
+        </view>
+        <view class="articleAppeared" s-for="i in content.articleAppeared">
+            <image src="{{i.imgUrl}}"></image>
+            <view class="article_content">
+              <view class="title">
+                {{i.title}}
+              </view>
+              <view class="info">
+                <view class="views">
+                  <view></view>
+                  {{i.views}}
+                </view>
+                <view class="time">
+                  {{i.time}}
+                </view>
+              </view>
+            </view>
+        </view>
+      </view>
+</view>

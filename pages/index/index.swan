@@ -1,0 +1,61 @@
+<view class="container">
+  <view class="header">
+     <view class="hlogo"></view>
+     <view class="hmenu">
+       <view class="asearch"></view>
+       <view class="aselect"></view>
+     </view>
+  </view>
+  <image class="banner" mode="widthFix" src="https://m.jupeixun.cn/skin/static/mip/images/v2.0/images/ad_01.jpg"></image>
+  <view class="menu">
+    <view bindtap="changeUrl" class="menu-item" data-pointUrl="{{item.url}}" s-for="item in menu">
+      <image class="icon" src='{{"https://m.jupeixun.cn/skin/static/mip/images/v2.0/ico_" + item.name + ".png"}}'></image>
+      <text>{{item.text}}</text>
+    </view>
+  </view>
+  <view class="conner-box">
+    <view class="conner-box-title">
+      <text class="conner-box-title-text">热门排名</text>
+      <text class="conner-box-title-more">查看更多>></text>
+    </view>
+    <view class="conner-box-items">
+      <view class="conner-box-item" s-for="item in conner">
+        <image mode="widthFix"  src="https://m.jupeixun.cn/skin/static/mip/images/v2.0/images/cover_{{item.name}}.png"></image>
+        <text>{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="hot-school">
+    <view class="hot-school-title">
+      <text class="hot-school-title-text">热门学校</text>
+      <text class="hot-school-title-more">查看更多>></text>
+    </view>
+    <view class="change-type">
+        <view bindtap="changeType" data-code="{{item.code}}" class="change-type-btn {{currentType === item.code ? 'cur' : ''}}" s-for="item in type">
+          {{item.name}}
+        </view>
+    </view>
+    <view class="tab" s-for="item in school">
+      <image mode="widthFix" src="{{item.src}}"></image>
+      <view class="tab-text">
+        <view class="tab-name">{{item.name}}</view>
+        <view class="tab-description">{{item.description}}</view>
+        <view class="tab-rank">USNEWS排名:
+           <text class="rank">{{item.rank}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+      <view class="tryapply">
+        <view></view>
+        定制方案
+      </view>
+      <view class="online">
+        <view></view>
+        入驻
+      </view>
+  </view>
+</view>
