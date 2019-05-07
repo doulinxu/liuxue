@@ -1,13 +1,25 @@
-<view class="container">
+<view  class="container {{_height ? 'noScroll': ''}}">
   <view class="header">
      <view class="hlogo"></view>
      <view class="hmenu">
-       <view class="asearch"></view>
-       <view class="aselect"></view>
+       <!-- <view class="asearch"></view> -->
+       <view class="aselect" bind:tap="scrollMenu"></view>
      </view>
   </view>
+  <view class="menu" animation="{{animationData}}">
+    <view class="mask"></view>
+    <view class="menu_content">
+      <view class="hlogo"></view>
+      <view class="close" bind:tap="scrollMenu"></view>
+      <view class="menuList">
+        <view s-for="item in menuList" class="{{item.cur ? 'cur' : ''}}"  bindtap="changeToList" data-cur="{{item.cur}}" data-pointUrl="/pages/newsList/newsList" >
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+  </view>
   <image class="banner" mode="widthFix" src="https://m.jupeixun.cn/skin/static/mip/images/v2.0/images/ad_01.jpg"></image>
-  <view class="menu">
+  <!-- <view class="menu">
     <view bindtap="changeUrl" class="menu-item" data-pointUrl="{{item.url}}" s-for="item in menu">
       <image class="icon" src='{{"https://m.jupeixun.cn/skin/static/mip/images/v2.0/ico_" + item.name + ".png"}}'></image>
       <text>{{item.text}}</text>
@@ -37,18 +49,37 @@
         </view>
     </view>
     <view class="tab" s-for="item in school">
-      <image mode="widthFix" src="{{item.src}}"></image>
+      <image mode="widthFix" src="{{item.img}}"></image>
       <view class="tab-text">
         <view class="tab-name">{{item.name}}</view>
-        <view class="tab-description">{{item.description}}</view>
+        <view class="tab-description">{{item.en_name}}</view>
         <view class="tab-rank">USNEWS排名:
-           <text class="rank">{{item.rank}}</text>
+           <text class="rank">{{item.top}}</text>
         </view>
+      </view>
+    </view>
+  </view> -->
+
+    <view class="hot-school">
+    <view class="hot-school-title">
+      <text class="hot-school-title-text">留学资讯</text>
+      <text class="hot-school-title-more" bindtap="changeUrl" class="menu-item" data-pointUrl="/pages/newsList/newsList" >查看更多>></text>
+    </view>
+    <!-- <view class="change-type">
+        <view bindtap="changeInformation" data-code="{{item.code}}" class="change-type-btn {{currentType === item.code ? 'cur' : ''}}" s-for="item in information">
+          {{item.name}}
+        </view>
+    </view> -->
+    <view class="tab informationList" s-for="item in informationList"  bindtap="changeUrl" data-pointUrl="/pages/newsDetail/newsDetail?id={{item.id}}">
+      <image mode="widthFix" src="{{!item.img ? 'http://img.jupeixun.cn/organize/default.jpg' : item.img}}"></image>
+      <view class="tab-text">
+        <view class="tab-name">{{item.title}}</view>
+        <view class="tab-description">{{item.description}}</view>
       </view>
     </view>
   </view>
 
-  <view class="footer">
+  <!-- <view class="footer">
       <view class="tryapply">
         <view></view>
         定制方案
@@ -57,5 +88,5 @@
         <view></view>
         入驻
       </view>
-  </view>
+  </view> -->
 </view>

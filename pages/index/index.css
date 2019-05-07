@@ -2,13 +2,103 @@
   margin: 0;
   padding: 0;
 }
+.noScroll{
+  overflow: hidden;
+  height:100%;
+  padding-bottom:0px !important;
+}
+.menu{
+  width:100%;
+  /* height:100%; */
+  height:0;
+  position: absolute;
+  z-index: 1000;
+  overflow: hidden;
+}
+.menu_content{
+  z-index: 100;
+  width:100%;
+  height:100%;
+}
+.menu .hlogo{
+  width:167px;
+  height:44px;
+  margin-top:12px;
+  margin-left:18px;
+  background: url(https://m.jupeixun.cn/skin/static/mip/images/jpx_02.png) no-repeat;
+  background-size:200px 200px;
+  background-position:0 -83px; 
+  margin:0 auto;
+  margin-top:40px;
+}
+.menu .mask{
+width:100%;
+height:100%;
+background-color: rgba(0,0,0,0.7);
+opacity: 0.75;
+position: absolute;
+top: 0;
+left: 0;
+z-index: -1;
+}
+.menuList .cur{
+  background: #ff9840;
+}
+.menu .close{
+  top:20px;
+  right:15px;
+  text-align: center;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #d4d4d4;
+    display: inline-block;
+    position: absolute;
+    
+}
+.menu .close:before {
+    content: '';
+    width: 1px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    background: #d4d4d4;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    top: 7px;
+}
+.menu .close:after{
+    content: '';
+    width: 1px;
+    height: 25px;
+    display: inline-block;
+    position: absolute;
+    background: #d4d4d4;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    top: 7px;
+}
+.menuList{
+  width:100%;
+  margin-top:50px;
+}
+.menuList view{
+  width:100%;
+  height:50px;
+  line-height: 50px;
+  text-align: center;
+  color:#fff;
+  font-size: 14px;
+}
 page{
   height: 100%;
   color: #333;
 }
 .container{
 min-height: 100%;
-padding-bottom:44px;
+/* padding-bottom:44px; */
+padding-bottom:20px;
 }
 .header{
   width:100%;
@@ -40,6 +130,7 @@ padding-bottom:44px;
 .header .hmenu .aselect{
     width:30px;
     height:30px;
+    float: right;
     background: url(https://m.jupeixun.cn/skin/static/mip/images/v2.0/ico_select.png) no-repeat;
 }
 .banner{
@@ -107,7 +198,7 @@ padding-bottom:44px;
   width:90%;
   margin:0 auto;
   padding-top:20px;
-  margin-top:20px;
+  /* margin-top:20px; */
 }
 .hot-school .hot-school-title{
   widht:100%;
@@ -164,8 +255,15 @@ padding-bottom:44px;
   max-height:50px;
   line-height:25px;
 }
-
-
+.informationList{
+  height:115px;
+}
+.informationList .tab-text{
+  /* float: left; */
+}
+.informationList .tab-description{
+  overflow: hidden;
+}
 .footer{
   position: fixed;
   bottom:0;

@@ -2,7 +2,7 @@
     "pages": [
         "pages/index/index",
         "pages/newsList/newsList",
-        "pages/newsDetail/newsDetail"
+        "pages/newsDetail/newsDetail"   
     ],
     "window": {
         "navigationBarBackgroundColor": "#ffffff",

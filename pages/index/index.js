@@ -6,6 +6,20 @@ const app = getApp()
 
 Page({
   data: {
+        loadingAnimate:{},
+        loading:true,
+        _height:0,
+        animationData:{},
+        menuList:[
+        {
+          name:'首页',
+          cur:true,
+        },
+          {
+          name:'资讯',
+          cur:false,
+        }
+        ],
     menu:[
       {
         name:'find_school',
@@ -82,7 +96,44 @@ Page({
         code:'4',
       },
     ],
+    currentInformation:1,
+    information:[
+      {
+        name:"最新留学",
+        code:"1",
+      },
+       {
+        name:"出国考试",
+        code:"2",
+      },
+    ],
     school:[
+      {
+        name:'玛丽鲍德温学院',
+        src:'http://img.jupeixun.cn/liuxue/000/000/749/749.png',
+        description:'Mary Baldwin College，缩写MBC',
+        rank:'31'
+      },
+      {
+        name:'玛丽鲍德温学院',
+        src:'http://img.jupeixun.cn/liuxue/000/000/749/749.png',
+        description:'Mary Baldwin College，缩写MBC',
+        rank:'31'
+      },
+      {
+        name:'玛丽鲍德温学院',
+        src:'http://img.jupeixun.cn/liuxue/000/000/749/749.png',
+        description:'Mary Baldwin College，缩写MBC',
+        rank:'31'
+      },
+      {
+        name:'玛丽鲍德温学院',
+        src:'http://img.jupeixun.cn/liuxue/000/000/749/749.png',
+        description:'Mary Baldwin College，缩写MBC',
+        rank:'31'
+      }
+    ],
+    informationList:[
       {
         name:'玛丽鲍德温学院',
         src:'http://img.jupeixun.cn/liuxue/000/000/749/749.png',
@@ -112,10 +163,65 @@ Page({
   changeUrl(e){
      swan.navigateTo({url:e.currentTarget.dataset.pointUrl});
   },
+  changeToList(e){
+    if(!e.currentTarget.dataset.cur){
+      swan.navigateTo({url:e.currentTarget.dataset.pointUrl});
+      this.scrollMenu();
+    }
+  },
   onLoad() {
-    
+    swan.showLoading({
+        title: '数据加载中',
+        mask: true
+    });
+    var _this = this;
+    var appInstance = getApp();
+    swan.request({
+      url: appInstance.api + 'bdprogram/home/', 
+      method: 'GET',
+      dataType: 'json',
+      // data: {
+      //     key: 'value'
+      // },
+      header: {
+          'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res);
+        if(res.statusCode === 200 && res.data.status === 200){
+          var _data = res.data.data;
+          _this.setData({
+            school:_data.school,
+            informationList:_data.news,
+            loading:false,
+          });
+        }
+        swan.hideLoading();
+      },
+      fail: function (err) {
+          console.log('错误码：' + err.errCode);
+          console.log('错误信息：' + err.errMsg);
+      }
+    });
   },
   changeType: function(e) {
     this.setData({'currentType': e.currentTarget.dataset.code});
-  }
+  },
+   changeInformation: function(e) {
+    this.setData({'currentInformation': e.currentTarget.dataset.code});
+  },
+    scrollMenu: function (e) {
+        var animation = swan.createAnimation();
+        let _height = this.data._height;
+        if(_height == 0){
+          _height = '100%';
+        }else{
+          _height = 0;
+        }
+        animation.height(_height).step();
+        this.setData({
+            animationData: animation.export(),
+            _height:_height,
+        });
+    },
 })

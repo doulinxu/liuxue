@@ -11,5 +11,6 @@ App({
     },
     onHide() {
         // do something when hide
-    }
+    },
+    api:'https://m.jupeixun.cn/'
 });

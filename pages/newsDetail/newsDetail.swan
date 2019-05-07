@@ -1,7 +1,13 @@
   <view class="loading" s-if="{{loading}}">
     <view animation="{{loadingAnimate}}"></view>
   </view>
-<view class="container">
+<scroll-view class="container" 
+  bind:scroll="bindscroll"
+  scroll-y
+  scroll-top="{= scrollTop =}"
+  scroll-with-animation='true'
+  >
+    <view bindtap='scrollTop' class='mip-gototop {{showUp ? "show": ""}}'></view>
     <view class="content">
       <view class="title">
         {{content.title}}
@@ -22,8 +28,9 @@
           <view></view>
           相关文章
         </view>
-        <view class="articleAppeared" s-for="i in content.articleAppeared">
-            <image src="{{i.imgUrl}}"></image>
+        <view class="articleAppeared" s-for="i in content.articleList"  bindtap="changeUrl" data-pointUrl="/pages/newsDetail/newsDetail?id={{i.id}}">
+            <!-- <image src="{{i.imgUrl}}"></image> -->
+            <image src="http://img.jupeixun.cn/article/000/105/188/105188.jpg"></image>
             <view class="article_content">
               <view class="title">
                 {{i.title}}

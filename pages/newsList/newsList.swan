@@ -1,7 +1,8 @@
   <view class="loading" s-if="{{loading}}">
     <view animation="{{loadingAnimate}}"></view>
   </view>
-<view class="container {{_height ? 'noScroll': ''}}">
+<scroll-view class="container {{_height ? 'noScroll': ''}}" bindscroll="bindscroll">
+
   <view class="header">
      <view class="hlogo" bind:tap="returnIndex" data-pointUrl="/pages/index/index"></view>
      <view class="hmenu" bind:tap="scrollMenu">
@@ -16,15 +17,15 @@
       <view class="hlogo"></view>
       <view class="close" bind:tap="scrollMenu"></view>
       <view class="menuList">
-        <view s-for="item in menu" class="{{item.cur ? 'cur' : ''}}" >
+        <view s-for="item in menu" class="{{item.cur ? 'cur' : ''}}" bindtap="changeToIndex" data-cur="{{item.cur}}" data-pointUrl="/pages/index/index" >
           {{item.name}}
         </view>
       </view>
     </view>
   </view>
   <view class="content">
-    <view class="newsItem" bind:tap="changeUrl" data-pointUrl="/pages/newsDetail/newsDetail" s-for="item in newslist">
-        <image src="{{item.imgUrl}}"></image>
+    <view class="newsItem" bind:tap="changeUrl" data-pointUrl="/pages/newsDetail/newsDetail?id={{item.id}}" s-for="item in newslist">
+        <image src="{{item.img == '' ? 'http://img.jupeixun.cn/organize/default.jpg' : item.img}}"></image>
         <view class="newsItem_text">
           <view class="title">{{item.title}}</view>
           <view class="info">
@@ -46,5 +47,4 @@
       Copyight©www.jupeixun.cn all Rights Reserved
     </view>
   </view>
-
-</view>
+</scroll-view>
