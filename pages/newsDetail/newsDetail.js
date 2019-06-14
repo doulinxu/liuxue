@@ -10,6 +10,7 @@ Page({
     scrollTop:0,
     loadingAnimate:{},
     showUp:false,
+    exceeding:false,
     content:{
       title:"新加坡莱佛士学院地理位置",
       author:"知乎者也",
@@ -51,6 +52,11 @@ Page({
       ]
     }
   },
+  showAll(e){
+        this.setData({
+            exceeding:false,
+        })
+   },
   loading:function(e) {
     var loading = swan.createAnimation(
       {
@@ -88,6 +94,7 @@ Page({
   //       title: '数据加载中',
   //       mask: true
   //   });
+  // seo信息
     var _this = this;
     var appInstance = getApp();
     swan.request({
@@ -108,7 +115,35 @@ Page({
             content:_data,
             loading:false,
           });
+          let seoInfo = {
+            seokeywords:'聚培训网,教育培训,教育培训机构,教育培训机构排名,语言培训,雅思培训,托福培训,小语种培训,英语培训',
+            seodescription:'聚培训网(www.jupeixun.cn)提供优质教育培训机构及课程信息,汇集众多优质培训机构、培训课程和培训老师,近十万个教育培训课程班,包含语言培训班,雅思培训班,托福培训班,小语种培训班,英语培训班等,找培训机构排名、搜培训学校地址、选行业名师就上聚培训网!'
+          };
+          swan.setPageInfo && swan.setPageInfo({
+              title: _data.title,
+              keywords: seoInfo.seokeywords,
+              description: seoInfo.seodescription,
+              success: function () {
+                  console.log('列表页页面基础信息设置完成');
+              }
+          });
         }
+        setTimeout(function() {
+            let query = swan.createSelectorQuery();
+            query.select('#content').fields({
+                size: true,
+            },function(res){
+                res.height
+            }).exec((res)=>{
+                let height = res[0].height;
+                if(height > 500){
+                    console.log(_this);
+                    _this.setData({
+                        exceeding:true,
+                    });
+                }
+            });
+        },500);
         swan.hideLoading();
       },
       fail: function (err) {

@@ -174,6 +174,19 @@ Page({
         title: '数据加载中',
         mask: true
     });
+    let seoInfo = {
+      title:'【聚培训网】优质教育培训机构就在聚培训网',
+      seokeywords:'聚培训网,教育培训,教育培训机构,教育培训机构排名,语言培训,雅思培训,托福培训,小语种培训,英语培训',
+      seodescription:'聚培训网(www.jupeixun.cn)提供优质教育培训机构及课程信息,汇集众多优质培训机构、培训课程和培训老师,近十万个教育培训课程班,包含语言培训班,雅思培训班,托福培训班,小语种培训班,英语培训班等,找培训机构排名、搜培训学校地址、选行业名师就上聚培训网!'
+    };
+    swan.setPageInfo && swan.setPageInfo({
+        title: seoInfo.title,
+        keywords: seoInfo.seokeywords,
+        description: seoInfo.seodescription,
+        success: function () {
+            console.log('列表页页面基础信息设置完成');
+        }
+    });
     var _this = this;
     var appInstance = getApp();
     swan.request({

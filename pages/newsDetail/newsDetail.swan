@@ -8,7 +8,7 @@
   scroll-with-animation='true'
   >
     <view bindtap='scrollTop' class='mip-gototop {{showUp ? "show": ""}}'></view>
-    <view class="content">
+    <view id="content" class="{{exceeding ? 'content exceeding' : 'content'}}">
       <view class="title">
         {{content.title}}
       </view>
@@ -22,15 +22,25 @@
       <view class="text" s-for="item in content.text">
           {{item}}
       </view>
+      <view class="more-box" s-if='{{exceeding}}' bindtap="showAll" >
+        <view class="more-content">
+          <view class="more">
+            <view class="more-icon"></view>
+          </view>
+          <view style="float:right;margin-right:5px;">查看更多</view>
+        </view>
     </view>
+    </view>
+    <ad appid="af93622e" apid="6285772" class="ad" type="feed" ></ad>
           <view class="otherArticle">
         <view class="title">
           <view></view>
           相关文章
         </view>
-        <view class="articleAppeared" s-for="i in content.articleList"  bindtap="changeUrl" data-pointUrl="/pages/newsDetail/newsDetail?id={{i.id}}">
+    <view s-for="i,index in content.articleList" >
+        <view class="articleAppeared"  bindtap="changeUrl" data-pointUrl="/pages/newsDetail/newsDetail?id={{i.id}}" id="{{ids}}">
             <!-- <image src="{{i.imgUrl}}"></image> -->
-            <image src="http://img.jupeixun.cn/article/000/105/188/105188.jpg"></image>
+            <image src="{{i.img ? i.img : 'http://img.jupeixun.cn/article/000/105/188/105188.jpg'}}"></image>
             <view class="article_content">
               <view class="title">
                 {{i.title}}
@@ -45,6 +55,9 @@
                 </view>
               </view>
             </view>
+           
+        </view>
+         <ad s-if="{{index%2 === 0}}" appid="af93622e" apid="6285772" class="ad" type="feed" ></ad>
         </view>
       </view>
 </view>

@@ -9,5 +9,10 @@
         "navigationBarTextStyle": "black",
         "navigationBarTitleText": "智能小程序",
         "backgroundTextStyle": "light"
+    },
+    "url-mapping":{
+        "pages/index/index":"/",
+        "pages/newsList/newsList":"/news/",
+        "pages/newsDetail/newsDetail":"news/{id}.html"
     }
 }
